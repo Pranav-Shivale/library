@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: "graenmetal";
+  src: 
+    url(fonts/graen-metal/GraenMetal-Regular.woff2) format(woff2),
+    url(fonts/graen-metal/GraenMetal-Regular.woff) format(woff1);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #000;
+  font-family: "graenmetal", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header svg {
+  height: 60px;
+  width: auto;
+  color: #000;
+}
+
+.bookshelf {
+  background: #D5E7B5;
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid black;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: start;
+  gap: 20px;
+}
+
+.card {
+  min-width: 250px;
+  height: 250px;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #6E1A37;
+  color: white;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
