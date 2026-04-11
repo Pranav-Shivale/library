@@ -20,7 +20,7 @@
         <h1>Library</h1>
       </div>
 
-      <button class="new-book">
+      <button class="new-book" id="new-book-btn">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
           <title>book-plus</title>
           <path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" />
@@ -29,6 +29,39 @@
       </button>
 
     </div>
+
+    <dialog id="new-book-dialog">
+      <form class="new-book-form"> 
+        <div>
+          <label for="title">Enter title: </label>
+          <input type="text" id="title" name="title" required>
+        </div>
+
+        <div>
+          <label for="author">Enter author: </label>
+          <input type="text" id="author" name="author" required>
+        </div>
+
+        <div>
+          <label for="chapter-count">Enter chapter count: </label>
+          <input type="number" id="chapter-count" name="chapter-count" required>
+        </div>
+
+        <div>
+          <label for="status">Select status: </label>
+          <select name="status" id="status" required>
+            <option value="Plan to read">Plan to read</option>
+            <option value="Reading">Reading</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <div>
+          <button class="cancel-btn" value="cancel" formmethod="dialog" formnovalidate>Cancel</button>
+          <button class="submit-btn" value="submit">Submit</button>
+        </div>
+      </form>
+    </dialog>
 
     <div class="bookshelf">
       
