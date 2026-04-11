@@ -1,5 +1,14 @@
 const myLibrary = [];
 const bookshelf = document.querySelector(".bookshelf");
+const showBtn = document.querySelector("#new-book-btn");
+const newBookDialog = document.querySelector("#new-book-dialog");
+const form = document.querySelector(".new-book-form");
+const cancelBtn = document.querySelector(".cancel-btn");
+const submitBtn = document.querySelector(".submit-btn");
+const titleEl = document.querySelector("#title");
+const authorEl = document.querySelector("#author");
+const chapterCountEl = document.querySelector("#chapter-count");
+const statusEl = document.querySelector("#status");
 
 function Book(id, title, author, chapterCount, status) {
   this.id = id;
@@ -13,10 +22,12 @@ function addBookToLibrary(title, author, chapterCount, status) {
   let id = crypto.randomUUID();
   let newBook = new Book(id, title, author, chapterCount, status);
   myLibrary.push(newBook);  
+  displayBook();
 }
 
-function displayBooks() {
-  for(const book of myLibrary) {
+function displayBook() {
+    const book = myLibrary.at(-1);  
+
     const newCard = document.createElement("div");
     const newTitle = document.createElement("div");
     const newAuthor = document.createElement("div");
@@ -36,7 +47,6 @@ function displayBooks() {
     newCard.classList.add("card");
 
     bookshelf.appendChild(newCard); 
-  }
 }
 
 addBookToLibrary("Usogui", "Sako Toshio", 539, "Completed");
@@ -46,4 +56,19 @@ addBookToLibrary("Oyasumi Punpun", "Inio Asano", 147, "Completed");
 addBookToLibrary("Vagabond", "Takehiko Inoue", 327, "Reading");
 addBookToLibrary("Pluto", "Naoki Urasawa", 65, "Plan to read");
 
-displayBooks();
+showBtn.addEventListener("click", () => {
+  newBookDialog.showModal();
+});
+
+cancelBtn.addEventListener("click", () => {
+  newBookDialog.close();
+});
+
+submitBtn.addEventListener("click", (event) => {
+  if(form.checkValidity()) {
+    event.preventDefault();
+    addBookToLibrary(titleEl.value, authorEl.value, chapterCountEl.value, statusEl.value);
+    form.reset();
+    newBookDialog.close();
+  }
+});
