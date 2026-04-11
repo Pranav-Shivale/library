@@ -70,6 +70,12 @@
   justify-self: end;
 }
 
+.new-book:focus,
+.new-book:hover {
+  outline: 2px solid #6E1A37;
+  background-color: #78d4be;
+}
+
 .new-book svg {
   height: 25px;
   width: auto;
@@ -106,4 +112,14 @@
 .title {
   font-size: 24px;
   font-weight: bold;
+}
+
+#new-book-dialog {
+  margin: auto;
+  padding: 20px;
+}
+
+#new-book-dialog::backdrop {
+  backdrop-filter: blur(1px);
+  background-color: rgb(255 255 255 / 10%);
 }
