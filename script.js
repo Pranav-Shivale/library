@@ -34,19 +34,36 @@ function displayBook() {
     const newChapterCount = document.createElement("div");
     const newStatus = document.createElement("div");
 
+    const removeBookBtn = document.createElement("button");
+    removeBookBtn.classList.add("remove-btn");
+    
     newTitle.textContent = book.title;
     newAuthor.textContent = book.author;
     newChapterCount.textContent = "Chapters: " + book.chapterCount;
     newStatus.textContent = "Status: " + book.status;
+    removeBookBtn.textContent = "Remove Book";
     newTitle.classList.add("title");
 
     newCard.appendChild(newTitle);
     newCard.appendChild(newAuthor);
     newCard.appendChild(newChapterCount);
     newCard.appendChild(newStatus);
+    newCard.appendChild(removeBookBtn);
     newCard.classList.add("card");
 
+    newCard.setAttribute("data-id", book.id); // Set attribute to associate DOM element with Book objects
+    
     bookshelf.appendChild(newCard); 
+    removeButton(removeBookBtn);
+}
+
+function removeButton(btn) {
+    btn.addEventListener("click", () => {
+    const btnId = btn.parentElement.dataset.id;
+    const removeIndex = myLibrary.findIndex((book) => book.id === btnId);
+    myLibrary.splice(removeIndex, 1);
+    btn.parentElement.remove();
+  });
 }
 
 addBookToLibrary("Usogui", "Sako Toshio", 539, "Completed");
