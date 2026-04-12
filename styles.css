@@ -55,18 +55,22 @@
   font-family: "graenmetal", Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.new-book {
+.new-book,
+.remove-btn {
   padding: 10px 20px;
   background: #72BAA9;
   border: none;
   border-radius: 10px;
   color: white;
+  cursor: pointer;
+}
+
+.new-book {
+  font-size: 18px;
+  font-weight: bold;
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
   justify-self: end;
 }
 
@@ -112,6 +116,16 @@
 .title {
   font-size: 24px;
   font-weight: bold;
+}
+
+.remove-btn {
+  font-size: 16px;
+}
+
+.remove-btn:focus,
+.remove-btn:hover {
+  outline: 2px solid #000000;
+  background-color: #78d4be;
 }
 
 #new-book-dialog {
