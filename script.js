@@ -26,39 +26,39 @@ function addBookToLibrary(title, author, chapterCount, status) {
 }
 
 function displayBook() {
-    const book = myLibrary.at(-1);  
+  const book = myLibrary.at(-1);  
 
-    const newCard = document.createElement("div");
-    const newTitle = document.createElement("div");
-    const newAuthor = document.createElement("div");
-    const newChapterCount = document.createElement("div");
-    const newStatus = document.createElement("div");
+  const newCard = document.createElement("div");
+  const newTitle = document.createElement("div");
+  const newAuthor = document.createElement("div");
+  const newChapterCount = document.createElement("div");
+  const newStatus = document.createElement("div");
 
-    const removeBookBtn = document.createElement("button");
-    removeBookBtn.classList.add("remove-btn");
+  const removeBookBtn = document.createElement("button");
+  removeBookBtn.classList.add("remove-btn");
     
-    newTitle.textContent = book.title;
-    newAuthor.textContent = book.author;
-    newChapterCount.textContent = "Chapters: " + book.chapterCount;
-    newStatus.textContent = "Status: " + book.status;
-    removeBookBtn.textContent = "Remove Book";
-    newTitle.classList.add("title");
+  newTitle.textContent = book.title;
+  newAuthor.textContent = book.author;
+  newChapterCount.textContent = "Chapters: " + book.chapterCount;
+  newStatus.textContent = "Status: " + book.status;
+  removeBookBtn.textContent = "Remove Book";
+  newTitle.classList.add("title");
 
-    newCard.appendChild(newTitle);
-    newCard.appendChild(newAuthor);
-    newCard.appendChild(newChapterCount);
-    newCard.appendChild(newStatus);
-    newCard.appendChild(removeBookBtn);
-    newCard.classList.add("card");
+  newCard.appendChild(newTitle);
+  newCard.appendChild(newAuthor);
+  newCard.appendChild(newChapterCount);
+  newCard.appendChild(newStatus);
+  newCard.appendChild(removeBookBtn);
+  newCard.classList.add("card");
 
-    newCard.setAttribute("data-id", book.id); // Set attribute to associate DOM element with Book objects
+  newCard.setAttribute("data-id", book.id); // Set attribute to associate DOM element with Book objects
     
-    bookshelf.appendChild(newCard); 
-    removeButton(removeBookBtn);
+  bookshelf.appendChild(newCard); 
+  removeButton(removeBookBtn);
 }
 
 function removeButton(btn) {
-    btn.addEventListener("click", () => {
+  btn.addEventListener("click", () => {
     const btnId = btn.parentElement.dataset.id;
     const removeIndex = myLibrary.findIndex((book) => book.id === btnId);
     myLibrary.splice(removeIndex, 1);
