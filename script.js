@@ -32,9 +32,10 @@ function displayBook() {
   const newTitle = document.createElement("div");
   const newAuthor = document.createElement("div");
   const newChapterCount = document.createElement("div");
-  const newStatus = document.createElement("div");
-
+  const newStatus = document.createElement("button");
   const removeBookBtn = document.createElement("button");
+
+  newStatus.classList.add("status-btn");
   removeBookBtn.classList.add("remove-btn");
     
   newTitle.textContent = book.title;
@@ -55,6 +56,7 @@ function displayBook() {
     
   bookshelf.appendChild(newCard); 
   removeButton(removeBookBtn);
+  statusButton(newStatus, book);
 }
 
 function removeButton(btn) {
@@ -63,6 +65,15 @@ function removeButton(btn) {
     const removeIndex = myLibrary.findIndex((book) => book.id === btnId);
     myLibrary.splice(removeIndex, 1);
     btn.parentElement.remove();
+  });
+}
+
+function statusButton(btn, book) {
+  btn.addEventListener("click", () => {
+    if(book.status === "Plan to read") book.status = "Reading";
+    else if(book.status === "Reading") book.status = "Completed";
+    else book.status = "Plan to read";
+    btn.textContent = "Status: " + book.status;
   });
 }
 
