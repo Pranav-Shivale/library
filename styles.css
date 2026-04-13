@@ -134,9 +134,61 @@
 #new-book-dialog {
   margin: auto;
   padding: 20px;
+  background: #FFFDE1;
+  color: #980404;
+  font-weight: bold;
+  width: 800px;
 }
 
 #new-book-dialog::backdrop {
   backdrop-filter: blur(1px);
   background-color: rgb(255 255 255 / 10%);
 }
+
+.new-book-form {
+  display: grid;
+  gap: 15px;
+  font-size: 18px;
+}
+
+.new-book-form input,
+.new-book-form select {
+  padding: 5px;
+  border: 2px solid #93BD57;
+  border-radius: 5px;
+  background: none;
+}
+
+.new-book-form input:focus,
+.new-book-form select:focus {
+  background-color: #E2E8F0;
+  outline: none;
+}
+
+.new-book-form button {
+  color: #93BD57;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background: #980404;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.new-book-form button:hover,
+.new-book-form button:focus {
+  background-color: #B32727;
+}
+
+.input-elem {
+  display: grid;
+}
+
+.form-btn {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
