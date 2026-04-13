@@ -32,22 +32,22 @@
 
     <dialog id="new-book-dialog">
       <form class="new-book-form"> 
-        <div>
+        <div class="input-elem">
           <label for="title">Enter title: </label>
           <input type="text" id="title" name="title" required>
         </div>
 
-        <div>
+        <div class="input-elem">
           <label for="author">Enter author: </label>
           <input type="text" id="author" name="author" required>
         </div>
 
-        <div>
+        <div class="input-elem">
           <label for="chapter-count">Enter chapter count: </label>
-          <input type="number" id="chapter-count" name="chapter-count" required>
+          <input type="number" id="chapter-count" name="chapter-count" min="0" required>
         </div>
 
-        <div>
+        <div class="input-elem">
           <label for="status">Select status: </label>
           <select name="status" id="status" required>
             <option value="Plan to read">Plan to read</option>
@@ -56,7 +56,7 @@
           </select>
         </div>
 
-        <div>
+        <div class="form-btn">
           <button class="cancel-btn" value="cancel" formmethod="dialog" formnovalidate>Cancel</button>
           <button class="submit-btn" value="submit">Submit</button>
         </div>
