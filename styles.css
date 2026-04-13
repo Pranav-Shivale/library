@@ -56,18 +56,19 @@
 }
 
 .new-book,
-.remove-btn {
+.remove-btn,
+.status-btn {
   padding: 10px 20px;
   background: #72BAA9;
   border: none;
   border-radius: 10px;
   color: white;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .new-book {
   font-size: 18px;
-  font-weight: bold;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -123,7 +124,9 @@
 }
 
 .remove-btn:focus,
-.remove-btn:hover {
+.remove-btn:hover,
+.status-btn:focus,
+.status-btn:hover {
   outline: 2px solid #000000;
   background-color: #78d4be;
 }
