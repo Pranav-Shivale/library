@@ -18,16 +18,20 @@ function Book(id, title, author, chapterCount, status) {
   this.status = status;
 }
 
+Book.prototype.changeStatus = function() {
+  if(this.status === "Plan to read") this.status = "Reading";
+  else if(this.status === "Reading") this.status = "Completed";
+  else this.status = "Plan to read";
+}
+
 function addBookToLibrary(title, author, chapterCount, status) {
   let id = crypto.randomUUID();
   let newBook = new Book(id, title, author, chapterCount, status);
   myLibrary.push(newBook);  
-  displayBook();
+  displayBook(newBook);
 }
 
-function displayBook() {
-  const book = myLibrary.at(-1);  
-
+function displayBook(book) {
   const newCard = document.createElement("div");
   const newTitle = document.createElement("div");
   const newAuthor = document.createElement("div");
@@ -56,7 +60,11 @@ function displayBook() {
     
   bookshelf.appendChild(newCard); 
   removeButton(removeBookBtn);
-  statusButton(newStatus, book);
+
+  newStatus.addEventListener("click", () => {
+    book.changeStatus();
+    newStatus.textContent = "Status: " + book.status;
+  });
 }
 
 function removeButton(btn) {
@@ -65,15 +73,6 @@ function removeButton(btn) {
     const removeIndex = myLibrary.findIndex((book) => book.id === btnId);
     myLibrary.splice(removeIndex, 1);
     btn.parentElement.remove();
-  });
-}
-
-function statusButton(btn, book) {
-  btn.addEventListener("click", () => {
-    if(book.status === "Plan to read") book.status = "Reading";
-    else if(book.status === "Reading") book.status = "Completed";
-    else book.status = "Plan to read";
-    btn.textContent = "Status: " + book.status;
   });
 }
 
