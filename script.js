@@ -10,12 +10,14 @@ const authorEl = document.querySelector("#author");
 const chapterCountEl = document.querySelector("#chapter-count");
 const statusEl = document.querySelector("#status");
 
-function Book(id, title, author, chapterCount, status) {
-  this.id = id;
-  this.title = title;
-  this.author = author;
-  this.chapterCount = chapterCount;
-  this.status = status;
+class Book {
+  constructor(id, title, author, chapterCount, status) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.chapterCount = chapterCount;
+    this.status = status;
+  }
 }
 
 Book.prototype.changeStatus = function() {
